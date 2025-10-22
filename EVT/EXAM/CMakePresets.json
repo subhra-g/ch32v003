@@ -1,0 +1,24 @@
+{
+	"version": 5,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 23,
+		"patch": 0
+	},
+	"configurePresets":[
+		{
+			"name": "ch32v003-base",
+			"displayName": "CH32V003 micro-controller family",
+			"description": "Base configuration for CH32V003 micro-controller family. Use this as base in User presets and override as required.",
+			"hidden": true,
+			"toolchainFile": "cmake/toolchain-riscv-none-elf-gcc.cmake",
+			"generator": "Ninja Multi-Config",
+			"binaryDir": "${sourceDir}/build/ch32v003",
+			"cacheVariables": {
+				"toolchain_path": "/Override/with/Path/To/RISC-V_GCC/bin/",
+				"MCU": "ch32v003f4p6",
+				"BUILD_EXAMPLES": false
+			}
+		}
+	]
+}

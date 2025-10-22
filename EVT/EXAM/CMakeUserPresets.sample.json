@@ -1,0 +1,28 @@
+{
+	"version": 5,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 23,
+		"patch": 0
+	},
+	"configurePresets":[
+		{
+			"name": "ch32v003f4p6evt",
+			"displayName": "CH32V003F4P6 Evaluation kit with RISC-V GCC from MounRiver Studio",
+			"description": "Using RISC-V GCC compiler for CH32V003F4P6-EVT-R0.",
+			"hidden": false,
+			"toolchainFile": "cmake/toolchain-riscv-none-elf-gcc.cmake",
+			"inherits": "ch32v003-base",
+			"binaryDir": "${sourceDir}/build/ch32v003f4p6evt",
+			"cacheVariables": {
+				"toolchain_path": "$env{USERPROFILE}/dev/tools/RISC-V_Embedded_GCC12/bin/",
+				"USE_INSTALL_WIP": true
+			},
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			}
+		}
+	]
+}
