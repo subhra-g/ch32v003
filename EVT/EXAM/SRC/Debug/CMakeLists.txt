@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(lib hal.debug.pd5)
+set(lib hal.debug-print.uart.pd5)
 
 add_library(${lib} STATIC)
 
@@ -46,11 +46,11 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::debug::pd5 ALIAS ${lib})
-add_library(hal::debug ALIAS ${lib}) # Default as per SDK.
+add_library(hal::debug-print::uart::pd5 ALIAS ${lib})
+add_library(hal::debug-print::uart ALIAS ${lib}) # Default as per SDK.
 # --------------------------------------------------------------------------------------------------
 
-set(lib hal.debug.pd0)
+set(lib hal.debug-print.uart.pd0)
 add_library(${lib} STATIC)
 
 target_sources(${lib}
@@ -96,11 +96,11 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::debug::pd0 ALIAS ${lib})
+add_library(hal::debug-print::uart::pd0 ALIAS ${lib})
 
 # --------------------------------------------------------------------------------------------------
 
-set(lib hal.debug.pd6)
+set(lib hal.debug-print.uart.pd6)
 add_library(${lib} STATIC)
 
 target_sources(${lib}
@@ -146,11 +146,11 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::debug::pd6 ALIAS ${lib})
+add_library(hal::debug-print::uart::pd6 ALIAS ${lib})
 
 # --------------------------------------------------------------------------------------------------
 
-set(lib hal.debug.pc0)
+set(lib hal.debug-print.uart.pc0)
 add_library(${lib} STATIC)
 
 target_sources(${lib}
@@ -196,10 +196,10 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::debug::pc0 ALIAS ${lib})
+add_library(hal::debug-print::uart::pc0 ALIAS ${lib})
 # --------------------------------------------------------------------------------------------------
 
-set(lib hal.debug.sdi)
+set(lib hal.debug-print.sdi)
 add_library(${lib} STATIC)
 
 target_sources(${lib}
@@ -245,4 +245,4 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::debug::sdi ALIAS ${lib})
+add_library(hal::debug-print::sdi ALIAS ${lib})
