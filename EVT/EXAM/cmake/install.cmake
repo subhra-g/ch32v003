@@ -23,10 +23,19 @@ install_dir
   |       +-- core -> Contains headers from 'SRC/Core'
   |       |
   |       +-- peripheral -> Contains headers from 'SRC/Peripheral/inc'
+  +-- startup
+  |   |
+  |   +-- ch32v003
+  |       |
+  |       +-- ch32v003.S -> ch32v003 Startup file
   +-- lib
   |   |
   |   +-- ch32v003 -> Contains all built archives and linker script
-  |
+  +-- ld
+  |   |
+  |   +-- ch32v003
+  |       |
+  |       +-- ch32v003.ld -> Contains ch32v002 linker script
   +-- share
       |
       +-- cmake -> Contains cmake scripts. use this path for find_package
@@ -91,4 +100,5 @@ list(APPEND peripheral_srcs
 	${PROJECT_SOURCE_DIR}/SRC/Peripheral/inc/ch32v00x_wwdg.h
 )
 install(FILES ${peripheral_srcs} DESTINATION include/ch32v003/peripheral)
-install(FILES ${PROJECT_SOURCE_DIR}/SRC/Ld/Link.ld DESTINATION lib/ch32v003)
+install(FILES ${PROJECT_SOURCE_DIR}/SRC/Startup/startup_ch32v00X.S DESTINATION startup/ch32v003/ch32v003.S)
+install(FILES ${PROJECT_SOURCE_DIR}/SRC/Ld/Link.ld DESTINATION ld/ch32v003/ch32v003.ld)
