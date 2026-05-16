@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(lib hal.peripheral)
+set(lib peripheral)
 
 add_library(${lib} STATIC)
 
@@ -84,9 +84,9 @@ target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
 target_link_options(${lib} PUBLIC -mno-save-restore)
 target_link_libraries(${lib}
 	PUBLIC
-	$<BUILD_INTERFACE:ch32v00x_config>
-	$<BUILD_INTERFACE:hal::core>
-	$<INSTALL_INTERFACE:hal.core>
+	#$<BUILD_INTERFACE:ch32v00x_config>
+	$<BUILD_INTERFACE:core>
+	$<INSTALL_INTERFACE:ch32v003::core>
 )
 
 target_link_directories(${lib}
@@ -97,4 +97,4 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::peripheral ALIAS ${lib})
+add_library(ch32v003::peripheral ALIAS ${lib})

@@ -13,10 +13,9 @@
 			"hidden": false,
 			"toolchainFile": "cmake/toolchain-riscv-none-elf-gcc.cmake",
 			"inherits": "ch32v003-base",
-			"binaryDir": "${sourceDir}/build/ch32v003f4p6evt",
+			"binaryDir": "${sourceDir}/build/ch32v003",
 			"cacheVariables": {
-				"toolchain_path": "$env{USERPROFILE}/dev/tools/RISC-V_Embedded_GCC12/bin/",
-				"USE_INSTALL_WIP": true
+				"toolchain_path": "$env{USERPROFILE}/dev/tools/RISC-V_Embedded_GCC12/bin/"
 			},
 			"condition": {
 				"type": "equals",

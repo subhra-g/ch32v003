@@ -39,6 +39,11 @@
 #define SDI_PRINT   SDI_PR_CLOSE
 #endif
 
+// SubhraG: To avoid compile error.
+// Define in the application. Set the value with System Clock Frequency (Core Clock)
+// Example: Any system_ch32v00X.c of SDK provided example.
+extern uint32_t SystemCoreClock;                 /* System Clock Frequency (Core Clock) */
+
 void Delay_Init(void);
 void Delay_Us(uint32_t n);
 void Delay_Ms(uint32_t n);

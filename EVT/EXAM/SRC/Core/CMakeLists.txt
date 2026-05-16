@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(lib hal.core)
+set(lib core)
 
 add_library(${lib} STATIC)
 
@@ -42,4 +42,4 @@ target_link_directories(${lib}
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 
-add_library(hal::core ALIAS ${lib})
+add_library(ch32v003::core ALIAS ${lib})
