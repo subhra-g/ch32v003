@@ -26,9 +26,9 @@ target_compile_options(${lib} PUBLIC -mno-save-restore)
 # Optimization. Intentionally kept private.
 target_compile_options(${lib} PRIVATE -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common)
 target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
-# target_compile_options(${lib} PRIVATE -Os)
 
-# Debugging
+# Debugging and optimization
+# target_compile_options(${lib} PRIVATE -Os)
 # target_compile_options(${lib} PRIVATE $<$<CONFIG:Debug>:-g>)
 
 # Linker options

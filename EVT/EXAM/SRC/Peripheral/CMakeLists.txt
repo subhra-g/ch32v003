@@ -75,16 +75,15 @@ target_compile_options(${lib} PUBLIC -mno-save-restore)
 # Optimization. Intentionally kept private.
 target_compile_options(${lib} PRIVATE -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common)
 target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
-# target_compile_options(${lib} PRIVATE -Os)
 
-# Debugging
+# Debugging and optimization
+# target_compile_options(${lib} PRIVATE -Os)
 # target_compile_options(${lib} PRIVATE $<$<CONFIG:Debug>:-g>)
 
 # Linker
 target_link_options(${lib} PUBLIC -mno-save-restore)
 target_link_libraries(${lib}
 	PUBLIC
-	#$<BUILD_INTERFACE:ch32v00x_config>
 	$<BUILD_INTERFACE:core>
 	$<INSTALL_INTERFACE:ch32v003::core>
 )

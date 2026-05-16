@@ -9,8 +9,7 @@ CONFIGURATIONS:
 
 Usage instruction:
 Using CMake,
-1. create a target `ch32v20x_config`. This target must have include path for ch32v20x_conf.h and system_ch32v20x.h.
-2. Use `FetchContent`.
+1. Use `FetchContent`.
     include(FetchContent)
     FetchContent_Declare(ch32v003
       SOURCE_DIR "PATH/TO/SDK" # e.g ${HOME}/dev/libs/ch32v003/
@@ -19,7 +18,7 @@ Using CMake,
       SYSTEM
     )
     Fetchcontent_MakeAvailable(ch32v003)
-3. The main application needs to have a function `SystemInit` defined. This function is expected to be
+2. The main application needs to have a function `SystemInit` defined. This function is expected to be
 	 called from the startup file. The function can be defined in the main application or in a target
 	 which is linked with the main application. The function is expected to initialize the system clock
 	 and other system related initializations. Refer to the examples in the SDK for more details.
@@ -36,12 +35,7 @@ project("ch32v003hal" VERSION 1.7.0
 #	message(FATAL_ERROR "MCU not defined to build CH32V20x HAL")
 #endif()
 
-#if(NOT TARGET ch32v00x_config)
-	# message(FATAL_ERROR "ch32v00x_config target is required. This target should have include path which holds ch32v00x_conf.h and system_ch32v00x.h.")
-#endif()
-
 # This is the manufacturer provided HAL.
-#set(sdk_path "${CMAKE_CURRENT_SOURCE_DIR}/EVT/EXAM/SRC")
 add_subdirectory(EVT/EXAM)
 
 # Don't setup installation when the project is not build standalone(e.g. `FetchContent`).
