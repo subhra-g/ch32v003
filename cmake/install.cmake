@@ -79,6 +79,7 @@ install(
 
 # REVIEW: Is there no way to do it automatically, like the PUBLIC sources?
 install(FILES ${PROJECT_SOURCE_DIR}/EVT/EXAM/SRC/core/core_riscv.h DESTINATION include/ch32v003/core)
+install(FILES ${PROJECT_SOURCE_DIR}/EVT/EXAM/SRC/debug/debug.h DESTINATION include/ch32v003/debug)
 # Following copies 'inc' directory in 'peripheral' creating 'peripheral/inc' path
 # install(DIRECTORY ${PROJECT_SOURCE_DIR}/EVT/EXAM/SRC/Peripheral/inc DESTINATION include/ch32v003/peripheral)
 list(APPEND peripheral_srcs

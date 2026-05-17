@@ -23,8 +23,7 @@ foreach(uart compile_opt IN ZIP_LISTS uart_options compile_options)
 		PUBLIC
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 		$<INSTALL_INTERFACE:include/>
-		# TODO: "debug.c/h" directly includes somefile from SDK. Following is WORKAROUND just for that.
-		$<INSTALL_INTERFACE:include/ch32v003/peripheral>
+		$<INSTALL_INTERFACE:include/ch32v003/debug>
 	)
 
 	target_compile_definitions(${lib} PUBLIC DEBUG=${compile_opt})
@@ -49,10 +48,10 @@ foreach(uart compile_opt IN ZIP_LISTS uart_options compile_options)
 		$<INSTALL_INTERFACE:lib/ch32v003>
 	)
 
-	add_library(ch32v003::debug-print::uart::${uart} ALIAS ${lib})
+	add_library(ch32v003::${lib} ALIAS ${lib})
 	set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}/Debug")
 
-	message(DEBUG "Created target: ch32v003::debug-print::uart::${uart}(${lib})")
+	message(DEBUG "Created target: ch32v003::${lib} (${lib})")
 
 endforeach()
 

@@ -9,12 +9,12 @@ add_library(${lib} INTERFACE)
 target_link_options(${lib}
 	INTERFACE
 	$<BUILD_INTERFACE:-T${CMAKE_CURRENT_SOURCE_DIR}/Link.ld>
-	$<INSTALL_INTERFACE:-TLink.ld>
+	$<INSTALL_INTERFACE:-Tch32v003.ld>
 )
 
 target_link_directories(${lib}
 	INTERFACE
-	$<INSTALL_INTERFACE:lib/ch32v003>
+	$<INSTALL_INTERFACE:ld/ch32v003>
 )
 
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)

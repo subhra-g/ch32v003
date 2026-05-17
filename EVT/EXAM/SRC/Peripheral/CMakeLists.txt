@@ -68,18 +68,14 @@ target_include_directories(${lib}
 	# TODO: "ch32v00x.h" directly includes somefile from SDK. Following is WORKAROUND just for that.
 	$<INSTALL_INTERFACE:include/ch32v003/peripheral>
 )
-
 # Processor Arch related
 target_compile_options(${lib} PUBLIC -mno-save-restore)
-
 # Optimization. Intentionally kept private.
 target_compile_options(${lib} PRIVATE -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common)
 target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
-
 # Debugging and optimization
 # target_compile_options(${lib} PRIVATE -Os)
 # target_compile_options(${lib} PRIVATE $<$<CONFIG:Debug>:-g>)
-
 # Linker
 target_link_options(${lib} PUBLIC -mno-save-restore)
 target_link_libraries(${lib}
@@ -87,7 +83,6 @@ target_link_libraries(${lib}
 	$<BUILD_INTERFACE:core>
 	$<INSTALL_INTERFACE:ch32v003::core>
 )
-
 target_link_directories(${lib}
 	INTERFACE
 	$<INSTALL_INTERFACE:lib/ch32v003>
@@ -95,5 +90,4 @@ target_link_directories(${lib}
 
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
-
-add_library(ch32v003::peripheral ALIAS ${lib})
+add_library(ch32v003::${lib} ALIAS ${lib})
