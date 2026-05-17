@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(lib hal.peripheral)
+set(lib peripheral)
 
 add_library(${lib} STATIC)
 
@@ -68,27 +68,21 @@ target_include_directories(${lib}
 	# TODO: "ch32v00x.h" directly includes somefile from SDK. Following is WORKAROUND just for that.
 	$<INSTALL_INTERFACE:include/ch32v003/peripheral>
 )
-
 # Processor Arch related
 target_compile_options(${lib} PUBLIC -mno-save-restore)
-
 # Optimization. Intentionally kept private.
 target_compile_options(${lib} PRIVATE -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common)
 target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
+# Debugging and optimization
 # target_compile_options(${lib} PRIVATE -Os)
-
-# Debugging
 # target_compile_options(${lib} PRIVATE $<$<CONFIG:Debug>:-g>)
-
 # Linker
 target_link_options(${lib} PUBLIC -mno-save-restore)
 target_link_libraries(${lib}
 	PUBLIC
-	$<BUILD_INTERFACE:ch32v00x_config>
-	$<BUILD_INTERFACE:hal::core>
-	$<INSTALL_INTERFACE:hal.core>
+	$<BUILD_INTERFACE:core>
+	$<INSTALL_INTERFACE:ch32v003::core>
 )
-
 target_link_directories(${lib}
 	INTERFACE
 	$<INSTALL_INTERFACE:lib/ch32v003>
@@ -96,5 +90,4 @@ target_link_directories(${lib}
 
 # set the target's folder (for IDEs that support it, e.g. Visual Studio)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
-
-add_library(hal::peripheral ALIAS ${lib})
+add_library(ch32v003::${lib} ALIAS ${lib})

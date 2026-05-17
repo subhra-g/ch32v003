@@ -1,0 +1,8 @@
+cmake configure command with installation info:
+-----------------------------------------------
+cmake .. --preset preset_name -DCMAKE_INSTALL_PREFIX:PATH=<Path to install>
+cmake --build build_dir/ --config <Debug/Release> --target install
+
+e.g.
+cmake --preset ch32v003 -DCMAKE_INSTALL_PREFIX:PATH=$PWD/SDK_BUILD_TEST
+cmake --build build/ch32v003/ --config Release --target install
