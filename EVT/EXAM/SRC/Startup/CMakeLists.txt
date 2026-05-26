@@ -11,7 +11,7 @@ add_library(${lib} STATIC)
 
 target_sources(${lib}
 	PRIVATE
-	"${CMAKE_CURRENT_SOURCE_DIR}/startup_ch32v00X.S"
+	"${CMAKE_CURRENT_SOURCE_DIR}/startup_ch32v00x.S"
 )
 
 # Processor Arch related

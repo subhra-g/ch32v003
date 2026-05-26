@@ -13,7 +13,7 @@ Using CMake,
     include(FetchContent)
     FetchContent_Declare(ch32v003
       SOURCE_DIR "PATH/TO/SDK" # e.g ${HOME}/dev/libs/ch32v003/
-      CMAKE_ARGS "-DMCU=${ch32v203c8}"
+      CMAKE_ARGS "-DMCU=${ch32v003c8}"
       EXCLUDE_FROM_ALL
       SYSTEM
     )
@@ -32,7 +32,7 @@ project("ch32v003hal" VERSION 1.7.0
 		LANGUAGES C CXX ASM)
 
 #if(NOT DEFINED MCU)
-#	message(FATAL_ERROR "MCU not defined to build CH32V20x HAL")
+#	message(FATAL_ERROR "MCU not defined to build CH32V003 HAL")
 #endif()
 
 # This is the manufacturer provided HAL.
