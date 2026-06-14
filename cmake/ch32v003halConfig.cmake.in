@@ -1,1 +1,34 @@
+##==================================================================================================
+# - MCU: # TODO: Yet to do. These are from 
+# 		CH32V003F4 (includes CH32V003F4P6 and CH32V003F4U6)
+# 		CH32V003A4 (Includes CH32V003A4M6)
+# 		CH32V003J4 (Includes CH32V003J4M6)
+##==================================================================================================
+
+if(__ch32v003halconfig_gaurd)
+	return()
+endif()
+set(__ch32v003halconfig_gaurd TRUE)
+
+set(supported_mcus CH32V003F4 CH32V003A4 CH32V003J4)
+set(MCU_FAMILY CH32V003)
+if(NOT DEFINED MCU)
+	set(MCU CH32V003F4)
+	message(WARNING "MCU not defined for CH32V003 HAL.\n"
+	                "Allowed MCUs are...\n"
+	                "    CH32V003F4 - For CH32V003F4P6 and CH32V003F4U6\n"
+	                "    CH32V003A4 - For CH32V003A4M6\n"
+	                "    CH32V003J4 - For CH32V003J4M6\n"
+									"Assuming ${MCU}.\n")
+else()
+	string(TOUPPER ${MCU} MCU_UPPER)
+	if(NOT MCU_UPPER IN_LIST supported_mcus)
+		message(FATAL_ERROR "Invalid MCU ${MCU}. Use one of the following\n"
+	                      "    CH32V003F4 - For CH32V003F4P6 and CH32V003F4U6\n"
+	                      "    CH32V003A4 - For CH32V003A4M6\n"
+	                      "    CH32V003J4 - For CH32V003J4M6\n")
+	endif()
+endif()
+message(STATUS "MCU (${MCU}) and family(${MCU_FAMILY}) will be added to compile definition.")
+
 include("${CMAKE_CURRENT_LIST_DIR}/ch32v003halTargets.cmake")

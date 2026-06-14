@@ -20,6 +20,7 @@ target_include_directories(${lib}
 	$<INSTALL_INTERFACE:include/ch32v003/core>
 )
 
+target_compile_definitions(${lib} PUBLIC ${MCU} ${MCU_FAMILY})
 # Processor Arch related
 target_compile_options(${lib} PUBLIC -mno-save-restore)
 

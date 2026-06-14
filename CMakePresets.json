@@ -16,7 +16,7 @@
 			"binaryDir": "${sourceDir}/build/ch32v003",
 			"cacheVariables": {
 				"toolchain_path": "/Override/with/Path/To/RISC-V_GCC/bin/",
-				"MCU": "ch32v003f4p6",
+				"MCU": "ch32v003f4",
 				"BUILD_EXAMPLES": false
 			}
 		}

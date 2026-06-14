@@ -14,6 +14,8 @@ target_sources(${lib}
 	"${CMAKE_CURRENT_SOURCE_DIR}/startup_ch32v00x.S"
 )
 
+target_compile_definitions(${lib} PUBLIC ${MCU} ${MCU_FAMILY})
+
 # Processor Arch related
 target_compile_options(${lib} PUBLIC -mno-save-restore)
 
@@ -40,4 +42,6 @@ target_sources(${lib}
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/startup_ch32v00x.S>
 	$<INSTALL_INTERFACE:startup/ch32v003/ch32v003.S> # This startup script needs to installed in 'lib/ch32v003'
 )
+target_compile_definitions(${lib} INTERFACE ${MCU} ${MCU_FAMILY})
+set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 add_library(ch32v003::startup ALIAS ${lib})
