@@ -68,6 +68,7 @@ target_include_directories(${lib}
 	# TODO: "ch32v00x.h" directly includes somefile from SDK. Following is WORKAROUND just for that.
 	$<INSTALL_INTERFACE:include/ch32v003/peripheral>
 )
+target_compile_definitions(${lib} PUBLIC ${MCU} ${MCU_FAMILY})
 # Processor Arch related
 target_compile_options(${lib} PUBLIC -mno-save-restore)
 # Optimization. Intentionally kept private.
