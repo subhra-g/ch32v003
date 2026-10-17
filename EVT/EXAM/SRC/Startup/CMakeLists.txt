@@ -29,6 +29,8 @@ target_compile_options(${lib} PRIVATE -msmall-data-limit=8)
 
 # Linker options
 target_link_options(${lib} PUBLIC -mno-save-restore)
+# This is the startup. So, do not use standard system startup files when linking.
+target_link_options(${lib} PUBLIC -nostartfiles)
 #target_link_options(${lib} PUBLIC -Xlinker --gc-sections)
 
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
@@ -43,5 +45,7 @@ target_sources(${lib}
 	$<INSTALL_INTERFACE:startup/ch32v003/ch32v003.S> # This startup script needs to installed in 'lib/ch32v003'
 )
 target_compile_definitions(${lib} INTERFACE ${MCU} ${MCU_FAMILY})
+# This is the startup. So, do not use standard system startup files when linking.
+target_link_options(${lib} INTERFACE -nostartfiles)
 set_target_properties(${lib} PROPERTIES FOLDER "${PROJECT_NAME}")
 add_library(ch32v003::startup ALIAS ${lib})
